@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  .animate-fade-in-delay-1 {
+    animation: fadeIn 1s ease-out 0.2s;
+    animation-fill-mode: both;
+  }
+
+  .animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.4s;
+    animation-fill-mode: both;
+  }
+
+  .animate-fade-in-delay-3 {
+    animation: fadeIn 1s ease-out 0.6s;
+    animation-fill-mode: both;
+  }
+
+  .animate-circuit {
+    animation: drawCircuit 3s linear infinite;
+  }
+
+  .animate-circuit-delay-1 {
+    animation: drawCircuit 3s linear infinite 1s;
+  }
+
+  .animate-circuit-delay-2 {
+    animation: drawCircuit 3s linear infinite 2s;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawCircuit {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Search highlighting */
+.search-match {
+  position: relative;
+  scroll-margin-top: 100px;
+}
+
+.search-match::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #3b82f6;
+  animation: highlightFade 0.5s ease-out;
+}
+
+.search-highlight {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-radius: 2px;
+  padding: 0 2px;
+  animation: highlightFade 0.3s ease-out;
+}
+
+@keyframes highlightFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
